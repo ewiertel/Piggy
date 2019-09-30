@@ -18,6 +18,7 @@ class Piggy(PiggyParent):
         self.LEFT_DEFAULT = 80
         self.RIGHT_DEFAULT = 80
         self.MIDPOINT = 1500  # what servo command (1000-2000) is straight forward for your bot?
+        self.load_defaults()
         
 
     def load_defaults(self):
@@ -53,7 +54,24 @@ class Piggy(PiggyParent):
     '''
 
     def dance(self):
-        print("I don't know how to dance. \nPlease give my programmer a zero.")
+        # HIGHER - ORDERED
+        for x in range(3):
+            self.chacha()
+            self.spin()
+            self.dab()
+            self.moonwalk()
+
+    def chacha(self):
+        '''back and forth movement'''
+
+    def spin(self):
+        '''fast spin in a circle'''
+
+    def dab(self):
+        '''head moves right while bot moves left, then goes back to original place'''
+    
+    def moonwalk(self):
+        '''moves backwards alternating power between left and right wheels'''
 
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
