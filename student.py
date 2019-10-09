@@ -72,6 +72,18 @@ class Piggy(PiggyParent):
     
     def moonwalk(self):
         '''moves backwards alternating power between left and right wheels'''
+	    self.back()
+	    time.sleep(1)
+	    self.turn_by_deg(-30)
+	    time.sleep(1)
+	    self.back()
+	    time.sleep(1)
+	    self.turn_by_deg(60)
+	    time.sleep(1)
+	    self.back()
+	    self.stop()
+
+
 
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
