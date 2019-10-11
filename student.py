@@ -71,7 +71,7 @@ class Piggy(PiggyParent):
     def dab(self):
         '''head moves right while bot moves left, then goes back to original place'''
         self.turn_by_deg(60)
-        self.servo(1000)
+        self.servo(1750)
         self.turn_by_deg(-60)
         self.servo(1500)
 
