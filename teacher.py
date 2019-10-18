@@ -173,5 +173,6 @@ class PiggyParent(gopigo3.GoPiGo3):
     def get_heading(self):
         """Returns the heading from the IMU sensor"""
         reading = self.imu.read_euler()[0]
+        time.sleep(.05)
         print("Gyroscope sensor is at: {} degrees ".format(reading))
         return reading

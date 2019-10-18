@@ -63,29 +63,43 @@ class Piggy(PiggyParent):
             self.moonwalk()
 
     def chacha(self):
-        '''back and forth movement'''
+        """back and forth movement"""
+        self.turn_by_deg(-30)
+        self.turn_by_deg(60)
+        self.turn_by_deg(-60)
+        self.turn_by_deg(60)
+        self.turn_by_deg(-60)
+        self.turn_by_deg(60)
+        self.turn_by_deg(-60)
+        self.turn_by_deg(60)
+        self.turn_by_deg(-60)
+        self.turn_by_deg(30)
+
 
     def spin(self):
-        '''fast spin in a circle'''
+        """fast spin in a circle, turns back"""
+        self.turn_by_deg(180)
+        self.turn_by_deg(180)
+        self.turn_by_deg(-180)
+        self.turn_by_deg(-180)
 
     def dab(self):
-        '''head moves right while bot moves left, then goes back to original place'''
+        """head moves right while bot moves left, then goes back to original place"""
         self.turn_by_deg(60)
         self.servo(2000)
         self.turn_by_deg(-60)
         self.servo(1500)
 
     def moonwalk(self):
-        '''moves backwards alternating power between left and right wheels'''
+        """moves backwards alternating power between left and right wheels"""
         self.back()
         time.sleep(1)
         self.turn_by_deg(-30)
-        time.sleep(1)
         self.back()
         time.sleep(1)
         self.turn_by_deg(60)
-        time.sleep(1)
         self.back()
+        time.sleep(1)
         self.stop()
 
 
