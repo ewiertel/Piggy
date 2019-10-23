@@ -71,14 +71,14 @@ class Piggy(PiggyParent):
     def safe_to_dance(self):
         """ Does a 360 distance check to see if dance floor is clear """
         for x in range(4):
-            for ang in range(1000, 2001, 100):
+            for ang in range(self.MIDPOINT-400, self.MIDPOINT+400, 100):
                 self.servo(ang)
                 time.sleep(.1)
                 if self.read_distance() < 250:
                     return False
             self.turn_by_deg(90)
         return True
-        
+
     
 
     def chacha(self):
