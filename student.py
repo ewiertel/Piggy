@@ -62,7 +62,7 @@ class Piggy(PiggyParent):
             return
         else:
             print("Lets dance.")
-        for x in range(1):
+        for x in range(3):
             self.chacha()
             self.spin()
             self.dab()
