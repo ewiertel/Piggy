@@ -78,6 +78,7 @@ class Piggy(PiggyParent):
                     return False
             self.turn_by_deg(90)
         return True
+        self.servo(1500)
 
     
 
