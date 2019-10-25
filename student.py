@@ -57,18 +57,16 @@ class Piggy(PiggyParent):
     def dance(self):
         # HIGHER - ORDERED
         # check to see it is safe to dance
-        '''
         if not self.safe_to_dance():
             print("Not enough room to safely dance")
             return
         else:
             print("Lets dance.")
-        '''
         for x in range(1):
-            # self.chacha()
-            # self.spin()
+            self.chacha()
+            self.spin()
             self.dab()
-            # self.moonwalk()
+            self.moonwalk()
 
     def safe_to_dance(self):
         """ Does a 360 distance check to see if dance floor is clear """
