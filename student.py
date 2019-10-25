@@ -110,6 +110,11 @@ class Piggy(PiggyParent):
         self.servo(2000)
         time.sleep(.25)
         self.stop()
+        self.left()
+        self.servo(1500)
+        time.sleep(.25)
+        self.stop()
+
 
     def moonwalk(self):
         """moves backwards alternating power between left and right wheels"""
