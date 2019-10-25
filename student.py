@@ -57,13 +57,13 @@ class Piggy(PiggyParent):
     def dance(self):
         # HIGHER - ORDERED
         # check to see it is safe to dance
-            '''
+        '''
         if not self.safe_to_dance():
             print("Not enough room to safely dance")
             return
         else:
             print("Lets dance.")
-            '''
+        '''
         for x in range(1):
             # self.chacha()
             # self.spin()
