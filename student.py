@@ -62,11 +62,11 @@ class Piggy(PiggyParent):
             return
         else:
             print("Lets dance.")
-        for x in range(3):
-            self.chacha()
-            self.spin()
+        for x in range(1):
+            # self.chacha()
+            # self.spin()
             self.dab()
-            self.moonwalk()
+            # self.moonwalk()
 
     def safe_to_dance(self):
         """ Does a 360 distance check to see if dance floor is clear """
@@ -110,7 +110,7 @@ class Piggy(PiggyParent):
         self.turn_by_deg(-60)
         time.sleep(.5)
         self.servo(1500)
-        time.sleep(1)
+        time.sleep(.5)
 
     def moonwalk(self):
         """moves backwards alternating power between left and right wheels"""
