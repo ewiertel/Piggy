@@ -108,8 +108,8 @@ class Piggy(PiggyParent):
         """head moves right while bot moves left, then goes back to original place"""
         self.turn_by_deg(60)
         self.servo(2000)
-        self.turn_by_deg(-60)
         self.servo(1500)
+        self.turn_by_deg(-60)
 
     def moonwalk(self):
         """moves backwards alternating power between left and right wheels"""
