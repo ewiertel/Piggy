@@ -148,8 +148,9 @@ class Piggy(PiggyParent):
                 print("\n Found Something!")
             elif self.read_distance() > trigger_distance and found_something:
                 found_something = False
-                print(" I found this many things: %d" % count)
+                print("I have a clear view. Resetting my counter")
         self.stop()
+        print(" I found this many things: %d" % count)
         return count
 
     def nav(self):
