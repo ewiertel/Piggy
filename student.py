@@ -152,7 +152,6 @@ class Piggy(PiggyParent):
         self.stop()
         print("I found this many things: %d" % count)
         return count 
-Collapse
 
 
 
