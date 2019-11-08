@@ -162,7 +162,6 @@ class Piggy(PiggyParent):
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         corner_count = 0
-        started_at = self.getheading()
         while True:
             # make robot look straight forward
             self.servo(self.MIDPOINT)
