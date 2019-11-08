@@ -161,14 +161,23 @@ class Piggy(PiggyParent):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
+        corner_count = 0
+        started_at = self.getheading()
         while True:
+            # make robot look straight forward
             self.servo(self.MIDPOINT)
+            # as long as nothing is in the way, move forward
             while self.read_distance() > 250:
+                corner_count = 0
                 self.fwd()
                 time.sleep(0.1)
+            # when an object is in the way, stop and scan to find which way to turn
             self.stop()
             self.scan()
             # traversal
+            corner_count += 1
+            if corner_count > 5:
+                self.turn_by_deg(180)
             left_total = 0
             left_count = 0
             right_total = 0
