@@ -18,6 +18,7 @@ class Piggy(PiggyParent):
         '''
         self.LEFT_DEFAULT = 80
         self.RIGHT_DEFAULT = 80
+        self,SAFE_DIST = 350
         self.MIDPOINT = 1500  # what servo command (1000-2000) is straight forward for your bot?
         self.load_defaults()
         
@@ -154,23 +155,30 @@ class Piggy(PiggyParent):
         return count 
 
 
+    def quick_check(self):
+        # 3 quick checks
+        for ang in range(self.MIDPOINT-150, self.MIDPOINT+150, 150):
+            self,servo(ang)
+            if self.read_distance() < self.SAFE_DIST:
+                return False
 
-
+        # if I get to the end, i found nothing dangerous
+        return True
 
     def nav(self):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
+        
         corner_count = 0
         self.get_heading()
         while True:
             # make robot look straight forward
             self.servo(self.MIDPOINT)
             # as long as nothing is in the way, move forward
-            while self.read_distance() > 250:
-                corner_count = 0
+            while self.quick_check():
                 self.fwd()
-                time.sleep(0.1)
+                time.sleep(.01)
             # when an object is in the way, stop and scan to find which way to turn
             self.stop()
             self.scan()
