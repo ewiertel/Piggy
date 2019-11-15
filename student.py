@@ -188,6 +188,7 @@ class Piggy(PiggyParent):
                 self.turn_by_deg(180)
                 time.sleep(2)
                 self.fwd(2)
+                self.corner_count = 0 # should reset corner count
                 
             left_total = 0
             left_count = 0
