@@ -186,7 +186,6 @@ class Piggy(PiggyParent):
             corner_count += 1
             if corner_count > 3:
                 self.turn_by_deg(180)
-                time.sleep(2)
                 self.fwd(2)
                 corner_count = 0 # should reset corner count
                 
