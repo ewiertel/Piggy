@@ -16,6 +16,7 @@ class Piggy(PiggyParent):
         ''' 
         MAGIC NUMBERS <-- where we hard-code our settings
         '''
+        self.exit_heading = 0
         self.LEFT_DEFAULT = 80
         self.RIGHT_DEFAULT = 80
         self.SAFE_DIST = 350
@@ -171,7 +172,9 @@ class Piggy(PiggyParent):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         
         corner_count = 0
-        
+        # assuming we are facing exit at the start
+        self.exit_heading = self.get_heading()
+
         while True:
             # make robot look straight forward
             self.servo(self.MIDPOINT)
@@ -184,10 +187,9 @@ class Piggy(PiggyParent):
             self.scan()
             # traversal
             corner_count += 1
+            
             if corner_count > 3:
-                self.turn_by_deg(180)
-                self.fwd(2)
-                corner_count = 0 # should reset corner count
+                self.escape()
                 
             left_total = 0
             left_count = 0
@@ -206,6 +208,12 @@ class Piggy(PiggyParent):
                 self.turn_by_deg(-45)
             else:
                 self.turn_by_deg(45)
+
+    def escape(self):
+        self.turn_by_deg(180)
+        self.deg_fwd(720)
+        corner_count = 0 # should reset corner count
+        self.turn_to_deg(self.exit_heading) # should turn to original direction
 
 
 
