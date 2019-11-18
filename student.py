@@ -168,7 +168,7 @@ class Piggy(PiggyParent):
 
     def nav(self):
             "robot able to navigate by checking surroundings"
-            #assuming that we are facing the exit at the start
+            # assuming that we are facing the exit at the start
             self.exit_heading = self.get_heading()      
 ​
             print("-----------! NAVIGATION ACTIVATED !------------\n")
@@ -176,14 +176,14 @@ class Piggy(PiggyParent):
             print("-------------! EXIT IS AT %d !---------------\n" % self.exit_heading) 
             corner_count = 0
             while True:
-                self.servo(self.MIDPOINT) #return servo to the center 
+                self.servo(self.MIDPOINT) # return servo to the center 
                 while self.quick_check():
                     corner_count = 0
                     self.fwd()
                     time.sleep(.01)
                 self.stop()
-                self.scan() #go to scan method and check surroundings
-                #traversal
+                self.scan() # go to scan method and check surroundings
+                # traversal
                 corner_count += 1
                 if corner_count > 3:
                     self.escape()
