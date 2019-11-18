@@ -168,8 +168,6 @@ class Piggy(PiggyParent):
 
     def nav(self):
                 "robot able to navigate by checking surroundings"
-        
-​
         #assuming that we are facing the exit at the start
         self.exit_heading = self.get_heading()      
 ​
