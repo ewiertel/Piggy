@@ -167,30 +167,28 @@ class Piggy(PiggyParent):
         return True
 
     def nav(self):
+                "robot able to navigate by checking surroundings"
+        
+​
+        #assuming that we are facing the exit at the start
+        self.exit_heading = self.get_heading()      
+​
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
-        print("-----------! NAVIGATION ACTIVATED !------------\n")
-        
+        print("-------------! EXIT IS AT %d !---------------\n" % self.exit_heading) 
         corner_count = 0
-        # assuming we are facing exit at the start
-        self.exit_heading = self.get_heading()
-
         while True:
-            # make robot look straight forward
-            self.servo(self.MIDPOINT)
-            # as long as nothing is in the way, move forward
+            self.servo(self.MIDPOINT) #return servo to the center 
             while self.quick_check():
+                corner_count = 0
                 self.fwd()
                 time.sleep(.01)
-            # when an object is in the way, stop and scan to find which way to turn
             self.stop()
-            self.scan()
-            # traversal
+            self.scan() #go to scan method and check surroundings
+            #traversal
             corner_count += 1
-            
             if corner_count > 3:
                 self.escape()
-                
             left_total = 0
             left_count = 0
             right_total = 0
@@ -198,7 +196,7 @@ class Piggy(PiggyParent):
             for ang, dist in self.scan_data.items():
                 if ang < self.MIDPOINT:
                     right_total += dist
-                    right_count += 1
+                    right_count +=1
                 else:
                     left_total += dist
                     left_count += 1
@@ -208,12 +206,11 @@ class Piggy(PiggyParent):
                 self.turn_by_deg(-45)
             else:
                 self.turn_by_deg(45)
-
+                
     def escape(self):
         self.turn_by_deg(180)
-        self.deg_fwd(720)
-        corner_count = 0 # should reset corner count
-        self.turn_to_deg(self.exit_heading) # should turn to original direction
+        self.deg_fwd(720)  
+        self.turn_to_deg(self.exit_heading)
 
 
 
