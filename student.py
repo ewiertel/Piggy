@@ -176,7 +176,7 @@ class Piggy(PiggyParent):
             print("-------- [ Press CTRL + C to stop me ] --------\n")
             print("-------------! EXIT IS AT %d !---------------\n" % self.exit_heading) 
             corner_count = 0
-            self.get_heading()
+            self.get_heading() # record the starting angle
 
             while True:
                 self.servo(self.MIDPOINT) # return servo to the center 
@@ -217,6 +217,7 @@ class Piggy(PiggyParent):
         self.turn_by_deg(180)
         self.deg_fwd(720)  
         self.turn_to_deg(self.exit_heading)
+        corner_count = 0
 
 
 
