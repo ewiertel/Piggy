@@ -176,7 +176,7 @@ class Piggy(PiggyParent):
             print("-------- [ Press CTRL + C to stop me ] --------\n")
             print("-------------! EXIT IS AT %d !---------------\n" % self.exit_heading) 
             corner_count = 0
-            self.exit_heading()
+            self.get_heading()
 
             while True:
                 self.servo(self.MIDPOINT) # return servo to the center 
