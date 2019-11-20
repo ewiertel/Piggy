@@ -176,6 +176,7 @@ class Piggy(PiggyParent):
             print("-------- [ Press CTRL + C to stop me ] --------\n")
             print("-------------! EXIT IS AT %d !---------------\n" % self.exit_heading) 
             corner_count = 0
+            self.exit_heading()
 
             while True:
                 self.servo(self.MIDPOINT) # return servo to the center 
@@ -185,14 +186,19 @@ class Piggy(PiggyParent):
                     time.sleep(.01)
                 self.stop()
                 self.scan() # go to scan method and check surroundings
+                
                 # traversal
+
                 corner_count += 1
+
                 if corner_count > 3:
                     self.escape()
+
                 left_total = 0
                 left_count = 0
                 right_total = 0
                 right_count = 0
+
                 for ang, dist in self.scan_data.items():
                     if ang < self.MIDPOINT:
                         right_total += dist
