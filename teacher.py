@@ -116,7 +116,7 @@ class PiggyParent(gopigo3.GoPiGo3):
 
         
         # while loop - keep turning until my gyro says I'm there
-        while abs(deg - self.get_heading()) > 4:
+        while abs(deg - self.get_heading()) > 8:
             turn(primary=70, counter=-70)
             # time.sleep(.05) # avoid spamming the gyro
 
