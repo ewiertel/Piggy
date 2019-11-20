@@ -187,7 +187,7 @@ class Piggy(PiggyParent):
                 self.scan() # go to scan method and check surroundings
                 # traversal
                 corner_count += 1
-                if corner_count == 3:
+                if corner_count > 3:
                     self.escape()
                 left_total = 0
                 left_count = 0
