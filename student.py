@@ -16,9 +16,10 @@ class Piggy(PiggyParent):
         ''' 
         MAGIC NUMBERS <-- where we hard-code our settings
         '''
-        self.exit_heading = 0
+        
         self.LEFT_DEFAULT = 80
         self.RIGHT_DEFAULT = 80
+        self.exit_heading = 0
         self.SAFE_DIST = 350
         self.MIDPOINT = 1500  # what servo command (1000-2000) is straight forward for your bot?
         self.load_defaults()
@@ -175,6 +176,7 @@ class Piggy(PiggyParent):
             print("-------- [ Press CTRL + C to stop me ] --------\n")
             print("-------------! EXIT IS AT %d !---------------\n" % self.exit_heading) 
             corner_count = 0
+
             while True:
                 self.servo(self.MIDPOINT) # return servo to the center 
                 while self.quick_check():
@@ -185,7 +187,7 @@ class Piggy(PiggyParent):
                 self.scan() # go to scan method and check surroundings
                 # traversal
                 corner_count += 1
-                if corner_count > 3:
+                if corner_count == 3:
                     self.escape()
                 left_total = 0
                 left_count = 0
