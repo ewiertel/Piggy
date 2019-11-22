@@ -167,7 +167,7 @@ class Piggy(PiggyParent):
         # if I get to the end, i found nothing dangerous
         return True
 
-   def nav(self):
+    def nav(self):
         "robot able to navigate by checking surroundings"
         
 ​
