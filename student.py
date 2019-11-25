@@ -198,7 +198,7 @@ class Piggy(PiggyParent):
         corner_count = 0
 
     def corners(self):
-         corner_count += 1
+        corner_count += 1
         if corner_count > 3:
             self.escape()
         left_total = 0
