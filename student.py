@@ -192,7 +192,15 @@ class Piggy(PiggyParent):
                 # to do: make turns biased towards the exit
                 # to do: add a double corner count if its stuck between two corners
                 # to do: 
-                
+    def path_towards_exit(self):
+        where_I_started = self.get_heading() 
+        self.turn_to_deg(self.exit_heading)
+        if self.quick_check():
+            return True
+        else:
+            self.turn_to_deg(where_I_started)
+        return False    
+
     def escape(self):
         self.deg_fwd(-360)
         self.turn_to_deg(self.exit_heading)
