@@ -20,6 +20,7 @@ class Piggy(PiggyParent):
         self.LEFT_DEFAULT = 96.5
         self.RIGHT_DEFAULT = 100
         self.exit_heading = 0
+        self.corner_count = 0
         self.SAFE_DIST = 350
         self.MIDPOINT = 1500  # what servo command (1000-2000) is straight forward for your bot?
         self.load_defaults()
@@ -175,13 +176,13 @@ class Piggy(PiggyParent):
             print("-----------! NAVIGATION ACTIVATED !------------\n")
             print("-------- [ Press CTRL + C to stop me ] --------\n")
             print("-------------! EXIT IS AT %d !---------------\n" % self.exit_heading) 
-            corner_count = 0
+            self.corner_count = 0
             self.get_heading() # record the starting angle
 
             while True:
                 self.servo(self.MIDPOINT) # return servo to the center 
                 while self.quick_check():
-                    corner_count = 0
+                    self.corner_count = 0
                     self.fwd()
                     time.sleep(.01)
                 self.stop()
@@ -195,11 +196,11 @@ class Piggy(PiggyParent):
     def escape(self):
         self.deg_fwd(-360)
         self.turn_to_deg(self.exit_heading)
-        corner_count = 0
+        self.corner_count = 0
 
     def corners(self):
-        corner_count += 1
-        if corner_count > 3:
+        self.corner_count += 1
+        if self.corner_count > 3:
             self.escape()
         left_total = 0
         left_count = 0
