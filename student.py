@@ -210,7 +210,7 @@ class Piggy(PiggyParent):
     def hold_position(self):
         start_angle = self.get_heading()
         while True:
-            time.sleep(.5)
+            time.sleep(.01)
             if self.get_heading() != start_angle:
                 self.turn_to_deg(start_angle)
 
