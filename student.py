@@ -212,7 +212,7 @@ class Piggy(PiggyParent):
         while True:
             time.sleep(.5)
             if self.get_heading() != start_angle:
-                turn_to_deg(start_angle)
+                self.turn_to_deg(start_angle)
 
     def corners(self):
         self.corner_count += 1
