@@ -208,7 +208,7 @@ class Piggy(PiggyParent):
         self.corner_count = 0
 
     def hold_position(self):
-        start_angle = self.getheading()
+        start_angle = self.get_heading()
         while True:
             time.sleep(.5)
             if self.get_heading() != start_angle:
