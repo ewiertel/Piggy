@@ -41,6 +41,7 @@ class Piggy(PiggyParent):
         menu = {"n": ("Navigate", self.nav),
                 "d": ("Dance", self.dance),
                 "o": ("Obstacle count", self.obstacle_count),
+                "h": ("Hold position", self.hold_position),
                 "c": ("Calibrate", self.calibrate),
                 "q": ("Quit", self.quit)
                 }
@@ -205,6 +206,13 @@ class Piggy(PiggyParent):
         self.deg_fwd(-360)
         self.turn_to_deg(self.exit_heading)
         self.corner_count = 0
+
+    def hold_position(self):
+        start_angle = self.getheading()
+        while True:
+            time.sleep(.5)
+            if self.get_heading() != start_angle:
+                turn_to_deg(start_angle)
 
     def corners(self):
         self.corner_count += 1
