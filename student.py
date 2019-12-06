@@ -200,7 +200,7 @@ class Piggy(PiggyParent):
             return True
         else:
             self.turn_to_deg(where_I_started)
-        return False    
+    
 
     def escape(self):
         self.deg_fwd(-360)
