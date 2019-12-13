@@ -152,7 +152,7 @@ class Piggy(PiggyParent):
             if reading > 751:
                 found_something = False
         self.stop()
-        return count
+        print(count)
 
 
 
