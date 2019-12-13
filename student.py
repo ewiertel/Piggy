@@ -144,7 +144,7 @@ class Piggy(PiggyParent):
         found_something = False #trigger
         count = 0
         self.turn_by_deg(350)
-        for reading in self.scan_data():
+        for reading in self.scan_data:
             if reading < 750:
                 count += 1
                 found_something = True
