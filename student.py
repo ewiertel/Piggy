@@ -143,15 +143,15 @@ class Piggy(PiggyParent):
         """ Does a 360 scan and returns the number of obstacles it sees"""
         found_something = False #trigger
         count = 0
-            for angle in range(self.MIDPOINT-450, self.MIDPOINT+450, 50):
-                self.servo(angle)
-                self.scan_data[angle] = self.read_distance()
-            for reading in self.scan_data:
-                if reading < 750 and not found_something:
-                    count += 1
-                    found_something = True
-                if reading > 751 and found_something:
-                    found_something = False
+        for angle in range(self.MIDPOINT-450, self.MIDPOINT+450, 50):
+            self.servo(angle)
+            self.scan_data[angle] = self.read_distance()
+        for reading in self.scan_data:
+            if reading < 750 and not found_something:
+                count += 1
+                found_something = True
+            if reading > 751 and found_something:
+                found_something = False
         self.stop()
         print(count)
 
