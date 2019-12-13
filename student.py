@@ -147,13 +147,13 @@ class Piggy(PiggyParent):
             for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 150):
                 self.servo(angle)
                 self.scan_data[angle] = self.read_distance()
-        for reading in self.scan_data:
-            if reading < 750:
-                count += 1
-                found_something = True
-            if reading > 751:
-                found_something = False
-        self.turn_by_deg(90)
+            for reading in self.scan_data:
+                if reading < 750:
+                    count += 1
+                    found_something = True
+                if reading > 751:
+                    found_something = False
+            self.turn_by_deg(90)
         self.stop()
         print(count)
 
