@@ -167,6 +167,54 @@ class Piggy(PiggyParent):
         # if I get to the end, i found nothing dangerous
         return True
 
+    def slither(self):
+        """ practice a smooth veer """
+        # record starting angle
+        starting_direction = self.get_heading()
+
+        # drive forward
+        self.set_motor_power(self.MOTOR_LEFT, self.LEFT_DEFAULT)
+        self.set_motor_power(self.MOTOR_RIGHT, self.RIGHT_DEFAULT)
+        self.fwd()
+
+        # throttle down left motor
+        for power in range(self.LEFT_DEFAULT, 30. -10):
+            self.set_motor_power(self.MOTOR_LEFT, power)
+            time.sleep(.5)
+
+        # throttle up left
+        for power in range(30. self.LEFT_DEFAULT + 1, 10):
+            self.set_motor_power(self.MOTOR_LEFT, power)
+            time.sleep(.1)
+
+        # throttle down right
+        for power in range(self.RIGHT_DEFAULT, 30. -10):
+            self.set_motor_power(self.MOTOR_RIGHT, power)
+            time.sleep(.5)
+
+        # throttle up right
+        for power in range(30. self.RIGHT_DEFAULT + 1, 10):
+            self.set_motor_power(self.MOTOR_RIGHT, power)
+            time.sleep(.1)
+
+        left_speed = self.LEFT_DEFAULT
+        right_speed = self.RIGHT_DEFAULT
+
+        # straighten out
+        while self.get_heading() != starting_direction
+            # if need veer right
+            if self.get_heading() < starting_direction:
+                right_speed -= 10
+            # if need veer left
+            elif self.get_heading() > starting_direction:
+                left_speed -= 10
+            self.set_motor_power(self.MOTOR_LEFT, left_speed)
+            self.set_motor_power(self.MOTOR_RIGHT, right_speed)
+            time.sleep(.1)
+        
+
+
+
     def nav(self):
             "robot able to navigate by checking surroundings"
             # assuming that we are facing the exit at the start
