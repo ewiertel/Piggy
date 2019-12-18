@@ -198,9 +198,6 @@ class Piggy(PiggyParent):
             self.set_motor_power(self.MOTOR_RIGHT, power)
             time.sleep(.1)
 
-        left_speed = self.LEFT_DEFAULT
-        right_speed = self.RIGHT_DEFAULT
-
         # straighten out
         while self.get_heading() != starting_direction:
             # if need veer right
