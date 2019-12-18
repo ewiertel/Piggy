@@ -17,7 +17,7 @@ class Piggy(PiggyParent):
         MAGIC NUMBERS <-- where we hard-code our settings
         '''
         
-        self.LEFT_DEFAULT = 96
+        self.LEFT_DEFAULT = 100
         self.RIGHT_DEFAULT = 100
         self.exit_heading = 0
         self.corner_count = 0
