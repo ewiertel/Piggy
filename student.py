@@ -205,14 +205,12 @@ class Piggy(PiggyParent):
         while self.get_heading() != starting_direction:
             # if need veer right
             if self.get_heading() < starting_direction:
-                right_speed -= 5
-                left_speed += 5
+                self.set_motor_power(self.MOTOR_LEFT, 90)
+                self.set_motor_power(self.MOTOR_RIGHT, 70)
             # if need veer left
             elif self.get_heading() > starting_direction:
-                left_speed -= 5
-                right_speed += 5
-            self.set_motor_power(self.MOTOR_LEFT, left_speed)
-            self.set_motor_power(self.MOTOR_RIGHT, right_speed)
+                self.set_motor_power(self.MOTOR_LEFT, 70)
+                self.set_motor_power(self.MOTOR_RIGHT, 90)
             time.sleep(.1)
         
 
